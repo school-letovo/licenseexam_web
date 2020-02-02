@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 import sys
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
@@ -23,10 +24,9 @@ SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = 'hbr!kbjm_0g0yre8u_err!8!ra)n+*f+#j378tjxs_2#m=#8z4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -51,11 +51,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'licenseexam.urls'
 
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), "authorization/templates"]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -90,23 +89,21 @@ LOGGING = {
     },
 }
 
-
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 DATABASES = {
     'default': {
-    'ENGINE': 'django.db.backends.mysql',
-    'NAME': 'licenseexam',
-    'USER': 'root',
-    'PASSWORD': 'letovo_drivertest',
-    'HOST': '',
-    'PORT': '',
-    'OPTIONS': {
-    'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
-   }
-  }
- }
-
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'licenseexam',
+        'USER': 'root',
+        'PASSWORD': 'letovo_drivertest',
+        'HOST': 'localhost',
+        'PORT': '',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
+        }
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -126,7 +123,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -139,7 +135,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
