@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from . import views
+from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index_page, name="index"),
+    path('', RedirectView.as_view(url='login/', permanent=False), name="index"),
     path('', include('authorization.urls'))
 ]
