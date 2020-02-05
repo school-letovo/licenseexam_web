@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+</head>
+<body>
+<div style="margin: 2%;">
+    <h2>Your results:</h2>
+    
+    <ul>
+        
+    {% for user in all_results.all %}
+        <li>{{ all_results.question_count }}</li>
+    {% endfor %}
+        
+    </ul>
+   
+</div>
+</body>
+</html>
