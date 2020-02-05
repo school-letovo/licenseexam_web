@@ -26,7 +26,7 @@ def add_new_result(request):
     return HttpResponse("OK")
 
 
-  def results (request):
+def results (request):
     all_results = TestResult.objects.all().filter(user=User.get_username())
     return render(request, 'resuts.html', {'all_results' : all_results})
 
