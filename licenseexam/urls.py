@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.redirect_to_login, name="index"),
     path('api/auth/', include('djoser.urls.authtoken')),
-    path('', include('authorization.urls'))
+    path('', include('authorization.urls')),
+    path('results/', views.result, name = "results")
 ]
