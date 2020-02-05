@@ -24,5 +24,5 @@ urlpatterns = [
     path('api/addresult', views.add_new_result),
     path('api/auth/', include('djoser.urls.authtoken')),
     path('', include('authorization.urls')),
-    path('results/', views.result, name = "results")
+    path('results/', views.results)
 ]
