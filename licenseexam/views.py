@@ -19,7 +19,7 @@ def add_new_result(request):
     res = TestResult()
     res.datetime_completed = datetime.time()
     res.question_count = int(request.POST.data["question_count"])
-    res.result_time = request.POST.data["result_time"]
+    res.result_time = int(request.POST.data["result_time"])
     res.user = request.user
     res.save()
     print("Added result for user " + str(request.user))
