@@ -1,7 +1,6 @@
 from django.http import HttpResponse
 import json
-import User
-from models import User
+from django.contrib.auth.models import User
 from models import TestResult
 import datetime
 from django.http import HttpResponse
