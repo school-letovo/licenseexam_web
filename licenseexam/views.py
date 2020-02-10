@@ -44,16 +44,18 @@ def login(request):
 @api_view(['POST'])
 @permission_classes((IsAuthenticated,))
 def add_new_result(request):
-    if request.POST.data in locals() or len(request.POST.data) < 3:
-        return HttpResponse("Error: Data is not provided")
     res = TestResult()
-    res.datetime_completed = datetime.time()
-    res.question_count = int(request.POST.data["question_count"])
-    res.result_time = int(request.POST.data["result_time"])
-    res.user = request.user
-    res.save()
-    print("Added result for user " + str(request.user))
-    return HttpResponse("OK")
+    try:
+        res.datetime_completed = datetime.time()
+        res.question_count = int(request.POST.data["question_count"])
+        res.result_time = int(request.POST.data["result_time"])
+        res.user = request.user
+    except:
+        return HttpResponse("Error adding data to database")
+    finally:
+        res.save()
+        print("Added result for user " + str(request.user))
+        return HttpResponse("OK")
 
 
 def results(request):
