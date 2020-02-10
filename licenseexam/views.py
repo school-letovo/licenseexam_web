@@ -50,8 +50,8 @@ def add_new_result(request):
         res.question_count = int(request.POST.data["question_count"])
         res.result_time = int(request.POST.data["result_time"])
         res.user = request.user
-    except:
-        return HttpResponse("Error adding data to database")
+    except Exception as e:
+        return HttpResponse("Error adding data to database: " + str(e))
     res.save()
     print("Added result for user " + str(request.user))
     return HttpResponse("OK")
