@@ -5,9 +5,7 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import redirect
 from licenseexam.models import TestResult
-from django.conf import settings
-from django.contrib.auth import get_user_model
-from django.db.models.signals import post_save
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.authtoken.models import Token
 from django.contrib.auth import authenticate
 from rest_framework.decorators import api_view, permission_classes
