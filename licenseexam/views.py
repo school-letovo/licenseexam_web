@@ -44,7 +44,7 @@ def login(request):
 @api_view(['POST'])
 @permission_classes((IsAuthenticated,))
 def add_new_result(request):
-    if len(request.POST.data) < 3:
+    if request.POST.data in locals() or len(request.POST.data) < 3:
         return HttpResponse("Error: Data is not provided")
     res = TestResult()
     res.datetime_completed = datetime.time()
