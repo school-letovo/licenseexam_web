@@ -42,7 +42,7 @@ def login(request):
         context['form'] = form
         return render(request, 'login.html', context)
     else:
-        return redirect('page/')
+        return redirect('/')
 
 
 def logout(request):
