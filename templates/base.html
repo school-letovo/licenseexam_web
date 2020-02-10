@@ -19,27 +19,27 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto" >
-            <a class="navbar-brand" href="/">DriverTest</a>
+    <a class="navbar-brand" href="/">DriverTest</a>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
             {% if user.is_authenticated %}
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.username }}</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/account">Личный кабинет</a>
-                    <a class="dropdown-item" href="/logout">Выйти</a>
-                </div>
-            </li>
+                <li class="nav-item dropdown">
+                <span class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ user.username }}</span>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/account">Личный кабинет</a>
+                        <a class="dropdown-item" href="/logout">Выйти</a>
+                    </div>
+                </li>
             {% else %}
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
-                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Войти</a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="/login">Войти</a>
-                    <a class="dropdown-item" href="/signup">Зарегистрироваться</a>
-                </div>
-            </li>
+                <li class="nav-item dropdown">
+                <span class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Войти</span>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/login">Войти</a>
+                        <a class="dropdown-item" href="/signup">Зарегистрироваться</a>
+                    </div>
+                </li>
             {% endif %}
         </ul>
     </div>
