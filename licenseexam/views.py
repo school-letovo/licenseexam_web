@@ -7,8 +7,8 @@ from django.shortcuts import redirect
 from licenseexam.models import TestResult
 
 
-def redirect_to_login(request):
-    return redirect('/login/')
+def index(request):
+    return render(request, "index.html")
 
 @csrf_exempt
 def add_new_result(request):
