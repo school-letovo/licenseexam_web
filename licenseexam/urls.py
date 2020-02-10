@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
     path('api/addresult', views.add_new_result),
-    path('api/auth/', include('djoser.urls.authtoken')),
+    path('api/auth/', views.login),
     path('', include('authorization.urls')),
     path('results/', views.results)
 ]
