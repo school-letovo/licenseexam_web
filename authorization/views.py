@@ -6,7 +6,7 @@ from authorization.forms import SignUpForm
 
 def signup(request):
     if request.user.is_authenticated == False:
-        context = {}
+        context = {"title": "SignUp", "user": request.user}
         if request.method == 'POST':
             form = SignUpForm(request.POST)
             if form.is_valid():
@@ -26,7 +26,7 @@ def signup(request):
 
 def login(request):
     if request.user.is_authenticated == False:
-        context = {}
+        context = {"title": "LogIn", "user": request.user}
         if request.method == 'POST':
             form = AuthenticationForm(request, data=request.POST)
             if form.is_valid():
