@@ -47,8 +47,8 @@ def add_new_result(request):
     res = TestResult()
     try:
         res.datetime_completed = datetime.time()
-        res.question_count = int(request.POST.data["question_count"])
-        res.result_time = int(request.POST.data["result_time"])
+        res.question_count = int(request.POST["question_count"])
+        res.result_time = int(request.POST["result_time"])
         res.user = request.user
     except Exception as e:
         return HttpResponse("Error adding data to database: " + str(e))
