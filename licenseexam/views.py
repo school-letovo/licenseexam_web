@@ -52,10 +52,9 @@ def add_new_result(request):
         res.user = request.user
     except:
         return HttpResponse("Error adding data to database")
-    finally:
-        res.save()
-        print("Added result for user " + str(request.user))
-        return HttpResponse("OK")
+    res.save()
+    print("Added result for user " + str(request.user))
+    return HttpResponse("OK")
 
 
 def results(request):
