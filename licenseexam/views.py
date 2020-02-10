@@ -43,11 +43,11 @@ def login(request):
 
 
 @csrf_exempt
+@api_view(['POST'])
+@permission_classes((IsAuthenticated,))
 def add_new_result(request):
-    if not request.user.is_authenticated:
-        return HttpResponse("Error: User is not authenticated")
-    if request.method != "POST":
-        return HttpResponse("Error: Request method is not POST")
+    if len(request.POST.data) < 3:
+        return HttpResponse("Error: Data is not provided")
     res = TestResult()
     res.datetime_completed = datetime.time()
     res.question_count = int(request.POST.data["question_count"])
