@@ -18,8 +18,8 @@ from rest_framework.status import (
 from rest_framework.response import Response
 
 
-def redirect_to_login(request):
-    return redirect('/login/')
+def index(request):
+    return render(request, "index.html")
 
 
 @csrf_exempt

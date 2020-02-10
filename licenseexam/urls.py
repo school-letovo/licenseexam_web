@@ -20,8 +20,8 @@ from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.redirect_to_login, name="index"),
-    path('api/addresult/', views.add_new_result),
+    path('', views.index, name="index"),
+    path('api/addresult', views.add_new_result),
     path('api/auth/', views.login),
     path('', include('authorization.urls')),
     path('results/', views.results)
