@@ -59,5 +59,5 @@ def add_new_result(request):
 
 def results(request):
     all_results = TestResult.objects.all().filter(user=request.user)
-    print(len(all_results))
+    print(all_results.question_time)
     return render(request, 'results.html', {'all_results' : all_results, "title": "Results", "user": request.user})
