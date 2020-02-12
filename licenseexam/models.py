@@ -9,4 +9,4 @@ class TestResult(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.time) + ' ' + str(self.question_count) + ' ' + str(self.user)
+        return str(self.result_time) + ' ' + str(self.question_count) + ' ' + str(self.user)
