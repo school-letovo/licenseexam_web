@@ -36,7 +36,7 @@ def login(request):
                 if user is not None:
                     if user.is_active:
                         auth_login(request, user)
-                return redirect('/')
+                return redirect('../page/')
         else:
             form = AuthenticationForm()
         context['form'] = form
