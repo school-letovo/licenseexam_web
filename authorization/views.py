@@ -42,7 +42,7 @@ def login(request):
         context['form'] = form
         return render(request, 'login.html', context)
     else:
-        return redirect('page/')
+        return redirect('../page/')
 
 
 def logout(request):
@@ -51,4 +51,4 @@ def logout(request):
     return redirect('/')
 
 def page(request):
-    return render (request, 'page.html')
+    return render(request, 'page.html')
