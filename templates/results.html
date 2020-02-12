@@ -6,8 +6,9 @@
     
     <ul>
         
-    {% for user in all_results.all %}
-        <li>{{ all_results.question_count }}</li>
+    {% for result in all_results %}
+        <li>Кол-во пройденных вопросов: {{ result.question_count }}<br>
+            Время прохождения: {{ result.result_time }}</li>
     {% endfor %}
         
     </ul>
