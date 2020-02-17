@@ -1,12 +1,10 @@
 {%  extends "base.html" %}
-
 {%  block content %}
+{% load static %}
 <body>
 <div style="margin: 2%;">
     <h2>Hello, dear friend!  </h2>
 </div>
-{% load static %}
-
 <img src="{% static "pictures/lilbub.jpg" %}" alt="Lilbub">
 </body>
 {% endblock %}
