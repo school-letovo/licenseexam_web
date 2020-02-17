@@ -5,7 +5,9 @@
 <div style="margin: 2%;">
     <h2>Hello, dear friend!  </h2>
 </div>
-<img src="{{STATIC_URL}}pictures/lilbub.jpg" alt="Lilbub">
+{% load static %}
+
+<img src="{% static "pictures/lilbub.jpg" %}" alt="Lilbub">
 </body>
 {% endblock %}
 
