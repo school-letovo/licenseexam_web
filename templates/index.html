@@ -1,18 +1,20 @@
+<title>Hello, driver!</title>
+
 {%  extends "base.html" %}
 {%  block content %}
 {% load static %}
-<title>Hello, driver!</title>
+
 <style>
     H2{
     font-size: 2vw;
-    font-family: Helvetica;
-    color: #E0FFFF;
+    font-family: "Courier New", Courier, monospace;
+    color: black;
     }
 
 </style>
-<body style="background-color: #FFC0CB;">
+<body style="background-color: white;">
 <div style="margin: 2%;">
-    <h2>Hello, dear friend! This cat is waiting for you at home! Pass our exams to keep you healthy! </h2>
+    <h2>Hello, dear friend! <br> This cat is waiting for you at home! <br> Pass our exams to keep you healthy! </h2>
 </div>
 <img src="{% static "pictures/lilbub.jpg" %}" alt="Lilbub">
 </body>
