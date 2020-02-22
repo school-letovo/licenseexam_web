@@ -16,19 +16,18 @@
     font-family: "Courier New", Courier, monospace;
     }
     .pic1 {
-    margin-left: 70px; margin-top: 50px;}
+    margin-left: 2%; margin-top: 50px;}
 </style>
 <div style="margin: 2%;">
     <h2>Your results:</h2>
-    
-    <ul>
-        
+
+    <table>
     {% for result in all_results %}
-        <li>Кол-во пройденных вопросов: {{ result.question_count }}<br>
-            Время прохождения: {{ result.result_time }}</li>
+        <tr> <th>{{ result.question_count }}</th>
+            <th> {{ result.result_time }}</th>
+        </tr>
     {% endfor %}
-        
-    </ul>
+    </table>
    
 </div>
 {%  endblock %}
