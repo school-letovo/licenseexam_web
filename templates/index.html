@@ -18,13 +18,16 @@
     font-size: 1vw;
     font-family: "Courier New", Courier, monospace;
     }
+    .pic1 {
+    left: 50px; top: 50px;
+    border: 2px solid #28a028;}
 </style>
 
 <body style="background-color: white;">
 <div style="margin: 2%;">
     <h2>Hello, dear friend! <br> This cat is waiting for you at home! <br> Pass our exams to keep you safety! </h2>
 </div>
-<img src="{% static "pictures/lilbub.jpg" %}" alt="Lil bub" height = 60%, width = 40%, margin-left: 20px%}">
+<div class="pic1"><img src="{% static "pictures/lilbub.jpg" %}" alt="Lil bub" height = 60%, width = 40%, margin-left: 20px%}"></div>
 </body>
 {% endblock %}
 
