@@ -17,9 +17,14 @@
     }
     .pic1 {
     margin-left: 2%; margin-top: 50px;}
-    
+
     table{
        border-collapse: collapse;
+    }
+    th, td {
+      text-align: center;
+      padding: 8px;
+      font-size: 25px;
     }
 
 
@@ -28,11 +33,11 @@
 <div style="margin: 2%;">
     <h2>Your results:</h2>
 
-    <table border="5" width="100%" bgcolor="#FFF8DC" align="center">
-        <tr><th width="50%" align="center" >Количество пройденных вопросов:</th> <th width="50%" align="center">Время прохождения:</th></tr>
+    <table width="100%">
+        <tr><th width="50%">Количество пройденных вопросов:</th> <th width="50%">Время прохождения:</th></tr>
     {% for result in all_results %}
-        <tr> <td align="center">{{ result.question_count }} вопрос(а)(ов)</td>
-            <td align="center"> {{ result.result_time }} секунд(а)</td>
+        <tr> <td>{{ result.question_count }} вопрос(а)(ов)</td>
+            <td> {{ result.result_time }} секунд(а)</td>
         </tr>
     {% endfor %}
     </table>
