@@ -1,5 +1,26 @@
+<title>You have registered!</title>
 {% extends "base.html" %}
-
- {%  block content %}
-<h2>Congrats! You have registered</h2>
+{%  block content %}
+{% load static %}
+<style>
+    H2{
+    font-size: 2vw;
+    font-family: "Courier New", Courier, monospace;
+    color: black;
+    }
+    li{
+    font-size: 1vw;
+    font-family: "Courier New", Courier, monospace;
+    }
+    ul{
+    font-size: 1vw;
+    font-family: "Courier New", Courier, monospace;
+    }
+    .pic1 {
+    margin-left: 2%; margin-top: 50px;}
+</style>
+<div style="margin: 2%;">
+    <h2>Congrats! You have registered</h2>
+</div>
+<div class="pic1"> <img src="{% static "pictures/greateJob.jpg" alt="Great job" height = 60%, width = 40% %}"></div>
 {%  endblock %}
