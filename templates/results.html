@@ -1,17 +1,53 @@
 {%  extends "base.html" %}
 
 {%  block content %}
+<style>
+    H2{
+    font-size: 2vw;
+    font-family: "Courier New", Courier, monospace;
+    color: black;
+    }
+    li{
+    font-size: 1vw;
+    font-family: "Courier New", Courier, monospace;
+    }
+    ul{
+    font-size: 1vw;
+    font-family: "Courier New", Courier, monospace;
+    }
+    .pic1 {
+    margin-left: 2%; margin-top: 50px;}
+
+    table{
+       border-collapse: collapse;
+    }
+    th, td {
+      text-align: center;
+      padding: 8px;
+      font-size: 25px;
+    }
+
+
+    tr:nth-child(even) {background-color: #f2f2f2;}
+</style>
 <div style="margin: 2%;">
-    <h2>Your results:</h2>
-    
-    <ul>
-        
-    {% for result in all_results %}
-        <li>Кол-во пройденных вопросов: {{ result.question_count }}<br>
-            Время прохождения: {{ result.result_time }}</li>
-    {% endfor %}
-        
-    </ul>
+    <h2><b>Your results:</b></h2>
+    {% if flag == -999999 %}
+        <h2>You have not passed our exam yet</h2>
+    {% else %}
+        <table width="100%">
+            <tr>
+                <th width="50%">Количество пройденных вопросов:</th>
+                <th width="50%">Время прохождения:</th>
+            </tr>
+        {% for result in all_results %}
+            <tr>
+                <td>{{ result.question_count }} вопрос(а)(ов)</td>
+                <td> {{ result.result_time }} секунд(а)</td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% endif %}
    
 </div>
 {%  endblock %}
