@@ -59,4 +59,7 @@ def add_new_result(request):
 
 def results(request):
     all_results = TestResult.objects.all().filter(user=request.user)
-    return render(request, 'results.html', {'all_results' : all_results, "title": "Results", "user": request.user})
+    if len(all_results) == 0:
+        return render(request, 'results.html', {'flag': -999999, 'all_results': all_results, "title": "Results", "user": request.user})
+    else:
+        return render(request, 'results.html', {'flag': 1, 'all_results': all_results, "title": "Results", "user": request.user})
