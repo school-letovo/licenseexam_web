@@ -1,11 +1,32 @@
+<title>Hello, driver!</title>
+
 {%  extends "base.html" %}
 {%  block content %}
 {% load static %}
-<body>
+
+<style>
+    H2{
+    font-size: 2vw;
+    font-family: "Courier New", Courier, monospace;
+    color: black;
+    }
+    li{
+    font-size: 1vw;
+    font-family: "Courier New", Courier, monospace;
+    }
+    ul{
+    font-size: 1vw;
+    font-family: "Courier New", Courier, monospace;
+    }
+    .pic1 {
+    margin-left: 2%; margin-top: 50px;}
+</style>
+
+<body style="background-color: white;">
 <div style="margin: 2%;">
-    <h2>Hello, dear friend!  </h2>
+    <h2>Hello, dear friend! <br> This cat is waiting for you at home! <br> Pass our exams to keep you safety! </h2>
 </div>
-<img src="{% static "pictures/lilbub.jpg" %}" alt="Lilbub">
+<div class="pic1"><img src="{% static "pictures/lilbub.jpg" %}" alt="Lil bub" height = 60%, width = 40% %}"></div>
 </body>
 {% endblock %}
 
