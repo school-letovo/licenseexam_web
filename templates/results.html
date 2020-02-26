@@ -31,16 +31,23 @@
     tr:nth-child(even) {background-color: #f2f2f2;}
 </style>
 <div style="margin: 2%;">
-    <h2>Your results:</h2>
-
-    <table width="100%">
-        <tr><th width="50%">Количество пройденных вопросов:</th> <th width="50%">Время прохождения:</th></tr>
-    {% for result in all_results %}
-        <tr> <td>{{ result.question_count }} вопрос(а)(ов)</td>
-            <td> {{ result.result_time }} секунд(а)</td>
-        </tr>
-    {% endfor %}
-    </table>
+    <h2><b>Your results:</b></h2>
+    {% if len(all_results) == 0 %}
+        <h2>You have not passed our exam yet</h2>
+    {% else %}
+        <table width="100%">
+            <tr>
+                <th width="50%">Количество пройденных вопросов:</th>
+                <th width="50%">Время прохождения:</th>
+            </tr>
+        {% for result in all_results %}
+            <tr>
+                <td>{{ result.question_count }} вопрос(а)(ов)</td>
+                <td> {{ result.result_time }} секунд(а)</td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% endif %}
    
 </div>
 {%  endblock %}
