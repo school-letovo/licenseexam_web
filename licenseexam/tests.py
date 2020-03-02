@@ -10,14 +10,21 @@ class APITestCase(TestCase):
         User.objects.create_user(username="unittest", password='securepassw567')
 
     def testAddSequence(self):
-        request_data = {'username':'unittest', 'password':'securepassw567'}
+        request_data = {'username': 'unittest', 'password': 'securepassw567'}
         request = self.factory.post('api/auth/', request_data, format='multipart')
         response = licenseexam.views.login(request)
         self.assertEqual(response.status_code, 200)
 
         token = response.data["token"]
-        request_data = {'question_count':'12', 'result_time':'123'}
-        request = self.factory.post('api/addresult/', request_data, format='multipart', HTTP_AUTHORIZATION='Token ' + token)
+        request_data = {'question_count': '12', 'result_time': '123'}
+        request = self.factory.post('api/addresult/', request_data, format='multipart',
+                                    HTTP_AUTHORIZATION='Token ' + token)
         response = licenseexam.views.add_new_result(request)
-        print(request.headers, '  ', response.data)
         self.assertEqual(response.status_code, 200)
+
+        result_data = TestResult.objects.all().filter(user='unittest')
+        self.assertEqual(len(result_data), 1)
+        for result in result_data:
+            self.assertEqual(result.result_time, 123)
+            self.assertEqual(result.question_count, 12)
+
