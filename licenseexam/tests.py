@@ -13,6 +13,7 @@ class APITestCase(TestCase):
         request_data = {'user':'unit_test', 'password':'secure_passw567'}
         request = self.factory.post('api/auth/', request_data, format='multipart')
         response = licenseexam.views.login(request)
+        print(response.data)
         self.assertEqual(response.status_code, 200)
 
         token = response.data["token"]
