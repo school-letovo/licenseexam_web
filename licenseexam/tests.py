@@ -19,4 +19,5 @@ class APITestCase(TestCase):
         request_data = {'question_count':'12', 'result_time':'123'}
         request = self.factory.post('api/addresult/', request_data, Authorization=token)
         response = licenseexam.views.add_new_result(request)
+        print(token, '  ', response.data)
         self.assertEqual(response.status_code, 200)
