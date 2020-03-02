@@ -22,9 +22,10 @@ class APITestCase(TestCase):
         response = licenseexam.views.add_new_result(request)
         self.assertEqual(response.status_code, 200)
 
-        result_data = TestResult.objects.all().filter(user='unittest')
+        result_data = TestResult.objects.filter(user='unittest')
         self.assertEqual(len(result_data), 1)
-        for result in result_data:
-            self.assertEqual(result.result_time, 123)
-            self.assertEqual(result.question_count, 12)
+        self.assertEqual(result_data[0].result_time, 123)
+        self.assertEqual(result_data[0].question_count, 12)
+
+
 
