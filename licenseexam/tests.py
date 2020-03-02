@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 class APITestCase(TestCase):
     def setUp(self):
         self.factory = RequestFactory()
-        User.objects.create(username="unittest", password='securepassw567')
+        User.objects.create_user(username="unittest", password='securepassw567')
 
     def testAddSequence(self):
         request_data = {'username':'unittest', 'password':'securepassw567'}
