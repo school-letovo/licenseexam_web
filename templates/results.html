@@ -1,3 +1,4 @@
+<title>Your results</title>
 {%  extends "base.html" %}
 
 {%  block content %}
@@ -37,13 +38,13 @@
     {% else %}
         <table width="100%">
             <tr>
-                <th width="50%">Количество пройденных вопросов:</th>
-                <th width="50%">Время прохождения:</th>
+                <th width="50%">Count of passed questions:</th>
+                <th width="50%">Exam time:</th>
             </tr>
         {% for result in all_results %}
             <tr>
-                <td>{{ result.question_count }} вопрос(а)(ов)</td>
-                <td> {{ result.result_time }} секунд(а)</td>
+                <td>{{ result.question_count }} question(s)</td>
+                <td> {{ result.result_time }} second(s)</td>
             </tr>
         {% endfor %}
         </table>
