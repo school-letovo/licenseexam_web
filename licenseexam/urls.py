@@ -23,6 +23,7 @@ urlpatterns = [
     path('', views.index, name="index"),
     path('api/addresult', views.add_new_result),
     path('api/auth/', views.login),
+    path('api/getresult/', views.get_results),
     path('', include('authorization.urls')),
     path('results/', views.results)
 ]
