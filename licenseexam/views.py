@@ -3,7 +3,7 @@ import datetime
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-from licenseexam.models import TestResult
+from licenseexam.models import ExamResult
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authtoken.models import Token
 from django.contrib.auth import authenticate
@@ -42,7 +42,7 @@ def login(request):
 @api_view(['POST'])
 @permission_classes((IsAuthenticated,))
 def add_new_result(request):
-    res = TestResult()
+    res = ExamResult()
     try:
         res.datetime_completed = datetime.time()
         res.question_count = int(request.POST["question_count"])
@@ -55,8 +55,24 @@ def add_new_result(request):
 
 
 def results(request):
-    all_results = TestResult.objects.all().filter(user=request.user)
-    if len(all_results) == 0:
-        return render(request, 'results.html', {'flag': -999999, 'all_results': all_results, "title": "Results", "user": request.user})
+    all_results = ExamResult.objects.all().filter(user=request.user)
+    if not all_results:
+        return render(request, 'results.html',
+                      {'isPassed': False, 'all_results': all_results, "title": "Results", "user": request.user})
     else:
-        return render(request, 'results.html', {'flag': 1, 'all_results': all_results, "title": "Results", "user": request.user})
+        return render(request, 'results.html',
+                      {'isPassed': True, 'all_results': all_results, "title": "Results", "user": request.user})
+
+
+@csrf_exempt
+@api_view(['POST'])
+@permission_classes((IsAuthenticated,))
+def get_results(request):
+    res = ExamResult.objects.all().filter(user=request.user)
+    if not res:
+        return Response(HTTP_400_BAD_REQUEST)
+    json = '{\"results\" : ['
+    for i in res:
+        json += "[{},{}],".format(i.question_count, i.result_time)
+    return Response(json,
+                    status=HTTP_200_OK)

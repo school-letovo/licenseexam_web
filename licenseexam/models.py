@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
-class TestResult(models.Model):
+class ExamResult(models.Model):
     result_time = models.IntegerField()
     question_count = models.IntegerField()
     datetime_completed = models.TimeField()

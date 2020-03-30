@@ -19,10 +19,11 @@ from licenseexam import views
 from django.views.generic.base import RedirectView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', views.index, name="index"),
+    path('admin/', admin.site.urls),
     path('api/addresult', views.add_new_result),
     path('api/auth/', views.login),
-    path('', include('authorization.urls')),
-    path('results/', views.results)
+    path('api/getresults', views.get_results),
+    path('results/', views.results),
+    path('', include('authorization.urls'))
 ]
