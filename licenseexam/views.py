@@ -56,12 +56,12 @@ def add_new_result(request):
 
 def results(request):
     all_results = ExamResult.objects.all().filter(user=request.user)
-    if len(all_results) == 0:
+    if not all_results:
         return render(request, 'results.html',
-                      {'flag': -999999, 'all_results': all_results, "title": "Results", "user": request.user})
+                      {'isPassed': False, 'all_results': all_results, "title": "Results", "user": request.user})
     else:
         return render(request, 'results.html',
-                      {'flag': 1, 'all_results': all_results, "title": "Results", "user": request.user})
+                      {'isPassed': True, 'all_results': all_results, "title": "Results", "user": request.user})
 
 
 @csrf_exempt
