@@ -1,5 +1,5 @@
 from django.test import TestCase, RequestFactory
-from licenseexam.models import TestResult
+from licenseexam.models import ExamResult
 import licenseexam.views
 from django.contrib.auth.models import User
 
@@ -22,7 +22,7 @@ class APITestCase(TestCase):
         response = licenseexam.views.add_new_result(request)
         self.assertEqual(response.status_code, 200)
 
-        result_data = TestResult.objects.filter(user=request.user)
+        result_data = ExamResult.objects.filter(user=request.user)
         self.assertEqual(len(result_data), 1)
         self.assertEqual(result_data[0].result_time, 123)
         self.assertEqual(result_data[0].question_count, 12)
