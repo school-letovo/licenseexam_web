@@ -71,7 +71,7 @@ def get_results(request):
     res = TestResult.objects.all().filter(user=request.user)
     if len(res) == 0:
         return 0
-    json = '{'
+    json = '{\"results\" : ['
     for i in res:
         json += "[{},{}],".format(i.question_count, i.result_time)
-    return json[:len(json) - 1] + "}"
+    return json[:len(json) - 1] + "]}"
