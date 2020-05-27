@@ -1,5 +1,6 @@
-Django==3.0.3
+Django
 pymysql==0.9.3
-djangorestframework==3.11.0
-djoser==2.0.3
+djangorestframework
+djoser
 cryptography
+requests
